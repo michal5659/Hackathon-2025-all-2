@@ -6,6 +6,8 @@ import asyncio
 import sys
 from pathlib import Path
 
+from PythonProject.agents.simple_ai_agent import get_simple_ai_agent
+
 
 # Add project root to Python path
 project_root = Path(__file__).parent
@@ -13,14 +15,11 @@ sys.path.insert(0, str(project_root))
 
 from orchestarator import get_orchestrator
 
-from config.settings import settings
-from dotenv import load_dotenv
-from agents.classification_agent import get_classification_agent
 
 async def main():
     """Main application entry point"""
     try:
-        agent = get_classification_agent()
+        agent = get_simple_ai_agent()
 
         # שלח prompt ל-LLM
         response = await agent.generate_response(

@@ -131,5 +131,3 @@ def get_api_utils() -> ApiUtils:
     if _api_utils is None:
         _api_utils = ApiUtils()
     return _api_utils
-
- 

@@ -3,7 +3,6 @@ Simple AI Agent with LLM
 """
 from typing import Dict, Any
 from openai import AzureOpenAI
-from config.settings import settings
 
 
 class SimpleAIAgent:
@@ -30,6 +29,7 @@ class SimpleAIAgent:
         Returns:
             Generated response text
         """
+        print("Generating LLM response...")
         try:
             # Build the full prompt with context
             full_prompt = self._build_prompt(prompt, context)
@@ -40,7 +40,7 @@ class SimpleAIAgent:
                 messages=[
                     {
                         "role": "system",
-                        "content": "You are a helpful AI assistant that helps users with their tasks."
+                        "content": "You are a helpful AI assistant."
                     },
                     {
                         "role": "user",
@@ -55,6 +55,8 @@ class SimpleAIAgent:
             result = response.choices[0].message.content
 
             print(f"LLM Response generated successfully")
+             #describe LLM abilities
+            print("this agent get message as input, and performing all the required changes. if updates: it support impot transalation from different languages,and in case of address update, it calculate the ZIP code.")
             return result
 
         except Exception as e:
@@ -63,6 +65,7 @@ class SimpleAIAgent:
 
     def _build_prompt(self, prompt: str, context: Dict[str, Any] = None) -> str:
         """Build the full prompt with context"""
+        print("Building prompt with context...")
         if not context:
             return prompt
 

@@ -23,7 +23,7 @@ from pydantic import Field
 
 class IDITAPISettings(BaseSettings):
     """IDIT API Configuration"""
-    base_url: str = Field("http://localhost:7001/idit-web/api")
+    base_url: str = Field("https://core-trunk-ci-qa.idit.sapiens.com:443/idit-web/api/")
     api_key: dict[str, str] = Field({"userName": "Administrator", "password": "1111"})
     timeout: int = Field(default=30)
 
